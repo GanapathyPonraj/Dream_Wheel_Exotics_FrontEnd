@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Card, Checkbox, Col, Collapse, Form, Input, Modal, Row, Select } from 'antd'
 import dayjs from 'dayjs';
+import LazyLoad from 'react-lazy-load';
+
 
 import BookingForm from '../Component/BookingForm'
 import CarDetails from '../Component/CarDetails';
@@ -193,7 +195,10 @@ function Fleet() {
     const carDetailsCall = () => {
         return topPicsSectiondata1 ? topPicsSectiondata1.map((data) =>
             <div>
-                <CarDetails data={data} key={data._id} showButton={true} userId={userData} userToken={userDataFromLS ? userDataFromLS.token : null} fleetModal={showFleetModal} />
+                {/* <LazyLoad height={400} placeholder={<div>Loading...</div>}> */}
+                    <CarDetails data={data} key={data._id} showButton={true} userId={userData} userToken={userDataFromLS ? userDataFromLS.token : null} fleetModal={showFleetModal} />
+                {/* </LazyLoad> */}
+
             </div>) : ''
     }
 
@@ -211,7 +216,7 @@ function Fleet() {
                 if (userDataFromLS) {
                     const dataOfFilter = filterProducts(carDatawithFavValues, filterButtonValues)
                     settopPicsSectiondata1(dataOfFilter)
-                }else{
+                } else {
                     const dataOfFilter = filterProducts(carInfo, filterButtonValues)
                     settopPicsSectiondata1(dataOfFilter)
                 }

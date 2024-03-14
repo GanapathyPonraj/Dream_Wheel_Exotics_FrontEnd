@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 
 import { addFavtoUser, removeFavFromUser } from '../../app/userSlice';
 import { addFavCountToCar, removeFavCountToCar } from '../../app/carSlice';
+import LazyLoad from 'react-lazyload';
 
 function CarDetails(props) {
     const dispatch = useDispatch();
@@ -55,6 +56,7 @@ function CarDetails(props) {
     }
 
     return (
+        <LazyLoad height={200} placeholder={<div>Loading...</div>}>
         <div>
             {contextHolder}
             <motion.div
@@ -87,6 +89,7 @@ function CarDetails(props) {
                 </Card>
             </motion.div>
         </div>
+        </LazyLoad>
     )
 }
 
