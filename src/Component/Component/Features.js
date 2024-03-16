@@ -10,7 +10,7 @@ function Features() {
 
     return (
         <Row>
-            <Col span={18} offset={3}  className='featurePage'>
+            <Col span={18} offset={3} xl={{span:18,offset:3}} lg={{span:18,offset:3}} xs={{span:18,offset:3}}  className='featurePage'>
                 <Row id='featurePageRowOne'>
                     <h2 id='featurePageRowOneA'>Why Choose Us?</h2>
                     <h2 id='featurePageRowOneB'>Our Features</h2>
