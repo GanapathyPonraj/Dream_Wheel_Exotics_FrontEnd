@@ -246,7 +246,11 @@ function Fleet() {
         <div>
             <NavBar />
             <Row className='MenuOpenButton'>
-                <Button onClick={() => { setMenuVisibility(!menuVisibility) }}>{menuVisibility ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}Menu</Button>
+                {/* <div id='iconsFilterMenu'> */}
+                <Button onClick={() => { setMenuVisibility(!menuVisibility) }}>{menuVisibility ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}Filter</Button>
+                <Button onClick={() => { setBookingVisibility(!bookingVisibility) }} id='bookingVisibility'>{bookingVisibility ? <DownCircleOutlined /> : <UpCircleOutlined />}</Button>
+                {/* </div>  */}
+
             </Row>
             <Row className='fleetOuter'>
                 {/* Filter */}
@@ -344,7 +348,7 @@ function Fleet() {
                 </Col>
                 {/* Main Content  */}
                 <Col span={15} xxl={15} xl={18} xs={24} className='fleetColumn'>
-                    <div onClick={() => { setBookingVisibility(!bookingVisibility) }} id='bookingVisibility'>{bookingVisibility ? <DownCircleOutlined /> : <UpCircleOutlined />}</div>
+                {/* <div onClick={() => { setBookingVisibility(!bookingVisibility) }} id='bookingVisibility'>{bookingVisibility ? <DownCircleOutlined /> : <UpCircleOutlined />}</div> */}
                     <Card id='bookingCardOuter' className={bookingVisibility ? 'hidebooking' : 'showBooking'}>
                         <BookingForm formLocation={'fleetPageTopSection'} />
                     </Card>
@@ -397,7 +401,7 @@ function Fleet() {
             <Modal centered width={'60vw'} footer={null} onOk={handleOk}
                 onCancel={handleCancel} open={isFleetModalOpen} className='fleetModal'>
                 <Row>
-                    <Col span={15} offset={1} xl={{span:15,offset:1}} lg={{span:15,offset:1}} xs={{span:24,offset:0}} className='modal'>
+                    <Col span={15} offset={1} xl={{ span: 15, offset: 1 }} lg={{ span: 15, offset: 1 }} xs={{ span: 24, offset: 0 }} className='modal'>
                         <Row className='modalImage'>
                             <img src={modalContent.carImage} alt='Range' />
                         </Row>
@@ -415,7 +419,7 @@ function Fleet() {
                             <p>To reserve an exotic car with Dream Wheels Exotics, ensure you're at least 25 years old, possess a valid driver's license, proof of insurance, and a major credit card. Additionally, a security deposit is required, the amount of which varies depending on the vehicle. Contact our team for more details on booking requirements and to secure your dream ride.</p>
                         </div>
                     </Col>
-                    <Col span={8} offset={0} xl={{span:8,offset:0}} lg={{span:8,offset:0}} xs={{span:24,offset:0}} className='fleetFormOuter'>
+                    <Col span={8} offset={0} xl={{ span: 8, offset: 0 }} lg={{ span: 8, offset: 0 }} xs={{ span: 24, offset: 0 }} className='fleetFormOuter'>
 
                         <Card className='fleetForm'>
                             <BookingForm formLocation={'fleetPageModal'} formLocationAdditional={'FleetPageModal'} modalData={modalContent} />

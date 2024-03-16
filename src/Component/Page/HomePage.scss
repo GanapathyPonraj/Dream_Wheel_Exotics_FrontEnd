@@ -36,6 +36,26 @@
     }
 }
 
+//NavBar
+.hideNavBarPhone {
+    display: flex !important;
+}
+
+.ShowNavBarPhone {
+    display: none !important;
+}
+
+.navBarTopRow {
+    width: 100%;
+}
+
+.NavBarSticky {
+    #navBarHideAndShow {
+        display: none;
+
+    }
+}
+
 //LogInPage
 
 .LogInHeader {
@@ -498,6 +518,7 @@
 
     #centerCol {
         display: flex;
+        align-items: center;
         justify-content: space-evenly;
 
         span:hover {
@@ -1957,7 +1978,7 @@
 }
 
 .MenuOpenButton {
-    display: none!important;
+    display: none !important;
 }
 
 .carDataAdder {
@@ -2620,7 +2641,7 @@
     }
 
     .aboutPageInnerNew {
-        top: 25vh
+        top: 15vh
     }
 
     .aboutPageInnerNew #text p {
@@ -2813,9 +2834,25 @@
         flex-direction: row;
         text-align: center;
         line-height: 3em;
-        height: 21vh !important;
+        height: max-content !important;
+
+        .ShowNavBarPhone {
+            // .ant-btn {
+            // border-radius: 8px;
+            // font-weight: 600;
+            color: white;
+            background-color: transparent;
+            border: 0px solid #ff7875;
+            // letter-spacing: 1px;
+            right: 0;
+            top: 6px;
+            position: absolute;
+            font-size: 1em;
+            // }
+        }
     }
-    .NavBarSticky{
+
+    .NavBarSticky {
         z-index: 200;
     }
 
@@ -2877,7 +2914,14 @@
 
     .MenuOpenButton {
         background-color: aliceblue;
-        display: flex!important;
+        width: 100vw;
+        display: flex !important;
+        justify-content: space-between;
+        padding-top: 3vh;
+
+        #iconsFilterMenu {
+            justify-content: space-around;
+        }
     }
 
     .fleetModal {
@@ -2981,22 +3025,41 @@
         transform: translateY(0vh);
         height: max-content !important;
     }
-    .accountsPage #accountTable th.ant-table-cell{
-        font-size: smaller;
-    }
-    .accountsPage #accountTable td.ant-table-cell{
+
+    .accountsPage #accountTable th.ant-table-cell {
         font-size: smaller;
     }
 
+    .accountsPage #accountTable td.ant-table-cell {
+        font-size: smaller;
+    }
+
+    .NavBarSticky {
+        #navBarHideAndShow {
+            height: max-content !important;
+        }
+    }
+
+    .hideNavBar {
+        display: none !important
+    }
+
+    .showNavBar {
+        display: block !important;
+        animation: fadeIn 1s ease-in-out;
+    }
 
     .hide {
         transform: translate3d(-100vw, 0, 0);
+
     }
 
     .show {
         transform: translate3d(0vw, 0, 0);
         overflow: hidden;
+
     }
+
     .hideAccount {
         transform: translate3d(-100vw, 0, 0);
     }
@@ -3098,40 +3161,69 @@
             margin-top: 0px !important;
         }
     }
-    .fleetColumn{
+
+    .fleetColumn {
         padding-left: 4vh;
     }
-   .accountFavCard{
-    display: flex;
-    flex-direction: column;
-    h2{
-        text-align: center;
-    }
-    .ant-col{
-        text-align: center;
-    }
-   }
-   .accountsPage{
-    padding-top: 0px!important;
-    .panel{
-        overflow: unset!important;
-    }
-    #smallImage{
-        height: 4vh;
-    }
-    #text{
-        font-size: 2em;
-    }
-    #accountCard{
-        margin-top: 20vh;
-        #menuSliderButton{
-            margin-bottom:5vh ;
+
+    .accountFavCard {
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            text-align: center;
+        }
+
+        .ant-col {
+            text-align: center;
         }
     }
-   }
-   .featurePage{
-    #featurePageRowOne{
-        width: 100%;
+
+    .accountsPage {
+        padding-top: 0px !important;
+
+        .panel {
+            overflow: unset !important;
+        }
+
+        #smallImage {
+            height: 4vh;
+        }
+
+        #text {
+            font-size: 2em;
+        }
+
+        #accountCard {
+            margin-top: 20vh;
+
+            #menuSliderButton {
+                margin-bottom: 5vh;
+            }
+        }
     }
-   }
+
+    .featurePage {
+        #featurePageRowOne {
+            width: 100%;
+        }
+    }
+
+    .navBarTopRow {
+        width: 100vw;
+    }
+
+    .hideNavBarPhone {
+        display: none !important;
+    }
+
+    .ShowNavBarPhone {
+        display: flex !important;
+    }
+
+    .featurePage {
+        display: flex !important;
+        flex-direction: column;
+        height: max-content;
+    }
 }
