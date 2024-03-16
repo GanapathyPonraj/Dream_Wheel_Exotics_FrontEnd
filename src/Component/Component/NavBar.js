@@ -90,10 +90,10 @@ function NavBar() {
             {contextHolder}
             {pageStatus ?
                 <Row className='NavBar'>
-                    <Col span={5} offset={3} id='logo'>
+                    <Col span={5} offset={3} xs={{span:24,offset:0}} xl={{span:5,offset:3}} lg={{span:5,offset:3}} id='logo'>
                         Dream Wheel Exotics
                     </Col>
-                    <Col span={8} offset={0} id='centerCol'>
+                    <Col span={8} offset={0}  xs={{span:24,offset:0}} xl={{span:8,offset:0}} lg={{span:8,offset:0}} id='centerCol'>
                         <span onClick={() => Navigation('home')}>Home</span>
                         <span onClick={() => Navigation('fleet')}>Fleet</span>
                         {/* <span onClick={() => Navigation('booking')}>Booking</span> */}
@@ -101,7 +101,7 @@ function NavBar() {
                         <span onClick={() => Navigation('about')}>About Us</span>
                         <span onClick={() => Navigation('contact')}>Contact</span>
                     </Col>
-                    <Col span={5} id='end'>
+                    <Col span={5} id='end'  xs={{span:24,offset:0}} xl={{span:5,offset:0}} lg={{span:5,offset:0}}>
                         {logInStatus ?
                             <div id='outer'>
                                 {userName ?

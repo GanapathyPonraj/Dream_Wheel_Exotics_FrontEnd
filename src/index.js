@@ -13,7 +13,6 @@ import AboutPage from './Component/Page/AboutPage';
 import ContactPage from './Component/Page/ContactPage';
 import BookingPage from './Component/Page/BookingPage';
 import Login from './Component/Page/Login';
-import NavBar from './Component/Component/NavBar';
 
 const router = createBrowserRouter([
   {

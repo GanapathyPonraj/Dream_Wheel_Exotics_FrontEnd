@@ -10,15 +10,15 @@ function Features() {
 
     return (
         <Row>
-            <Col span={18} offset={3} className='featurePage'>
+            <Col span={18} offset={3}  className='featurePage'>
                 <Row id='featurePageRowOne'>
                     <h2 id='featurePageRowOneA'>Why Choose Us?</h2>
                     <h2 id='featurePageRowOneB'>Our Features</h2>
                     <p>Discover a world of convenience, safety, and customization, paving the way<br /> for unforgettable adventures and seamless mobility solutions.</p>
                 </Row>
                 <Row>
-                    <Col span={5} id='featurePageRowTwo'>
-                        <div>
+                    <Col span={5} xl={5} lg={5} xs={11} id='featurePageRowTwo'>
+                        <div id='featurePageOuter'>
                             <ScrollTrigger onEnter={() => setScrollStatus(true)} onExit={() => setScrollStatus(false)} >
                                 <motion.div initial={{ x: '-3vw' }} animate={scrollStatus ? { x: 0 } : {}} transition={{ duration: 0.75, ease: 'easeInOut' }} >
                                     <h2>First Class Service</h2>
@@ -28,7 +28,7 @@ function Features() {
                                 </motion.div>
                             </ScrollTrigger>
                         </div>
-                        <div>
+                        <div id='featurePageOuter'>
                             <ScrollTrigger onEnter={() => setScrollStatus(true)} onExit={() => setScrollStatus(false)} >
                                 <motion.div initial={{ x: '-3vw' }} animate={scrollStatus ? { x: 0 } : {}} transition={{ duration: 0.75, ease: 'easeInOut' }}>
                                     <h2>24/7 road assistance</h2>
@@ -39,11 +39,11 @@ function Features() {
                             </ScrollTrigger>
                         </div>
                     </Col>
-                    <Col span={14} id='featurePageImageCol'>
+                    <Col span={14} xl={14} lg={14} xs={0} id='featurePageImageCol'>
                         <img src='Lambo.png' alt='lambo' />
                     </Col>
-                    <Col span={5} id='featurePageRowThree'>
-                        <div>
+                    <Col span={5} xl={{span:5,offset:0}} lg={{span:5,offset:0}} xs={{span:11,offset:1}} id='featurePageRowThree'>
+                        <div id='featurePageOuter'>
                             <ScrollTrigger onEnter={() => setScrollStatus(true)} onExit={() => setScrollStatus(false)} >
                                 <motion.div initial={{ x: '3vw' }} animate={scrollStatus ? { x: 0 } : {}} transition={{ duration: 0.75, ease: 'easeInOut' }} >
                                     <h2>Quality at Minimum Expense</h2>
@@ -53,7 +53,7 @@ function Features() {
                                 </motion.div>
                             </ScrollTrigger>
                         </div>
-                        <div>
+                        <div id='featurePageOuter'>
                             <ScrollTrigger onEnter={() => setScrollStatus(true)} onExit={() => setScrollStatus(false)} >
                                 <motion.div initial={{ x: '3vw' }} animate={scrollStatus ? { x: 0 } : {}} transition={{ duration: 0.75, ease: 'easeInOut' }}>
                                     <h2>Free Pick-Up & Drop-Off</h2>

@@ -159,14 +159,14 @@ function BookingPage() {
                         <Col span={2} id='iconCol'>
                             <LeftCircleOutlined className='bookingIcon' onClick={() => navigate('/fleet')} />
                         </Col>
-                        <Col span={22}>
+                        <Col span={22} xl={22} lg={22} xs={24}>
                             <h1 id='header'>Review & Reserve</h1>
                             <div id='headerContent'>Review your selections and secure your bookings with ease - reserve your dream ride today.</div>
                         </Col>
                     </Row>
 
                     <Row>
-                        <Col span={8}>
+                        <Col span={8} xl={8} lg={8} xs={24}>
 
                             {/* Rental Details  */}
                             <Card id='RentalCard'>
@@ -224,7 +224,7 @@ function BookingPage() {
                             </Card>
 
                         </Col>
-                        <Col span={14} offset={2}>
+                        <Col span={14} offset={2} xl={{span:14,offset:2}} lg={{span:14,offset:2}} xs={{span:24,offset:0}}>
 
                             {/* Conatct Form */}
                             <Card id='ContactCard'>

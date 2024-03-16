@@ -137,8 +137,8 @@ function HomePage() {
                         <Button onClick={() => navigate('/fleet')}>View Our Fleet</Button>
                     </Row>
                     {/* Section 2 */}
-                    <Row>
-                        <Col span={7} offset={17} xxl={{ span: 7, offset: 17 }} xl={{ span: 7, offset: 16 }} lg={{ span: 7, offset: 16 }}>
+                    <Row className='bookingHomeRow'>
+                        <Col span={7} offset={17} xxl={{ span: 7, offset: 17 }} xl={{ span: 7, offset: 16 }} lg={{ span: 7, offset: 16 }} xs={{ span: 24, offset: 0 }} >
                             <Card className='homepageBookingForm'>
                                 <BookingForm formLocation={'homePage'} />
                             </Card>
@@ -150,10 +150,10 @@ function HomePage() {
             <Row className='middleSection' >
                 <Col span={18} offset={3}>
                     <Row>
-                        <Col span={12} id='leftColumn'>
+                        <Col span={12} xs={24} xl={12} lg={12} id='leftColumn'>
                             <p>We offer customers a wide range of commercial cars and luxury cars on occasion.</p>
                         </Col>
-                        <Col span={12} id='rightColumn'>
+                        <Col span={12} xl={12} lg={12} xs={24} id='rightColumn'>
                             <p>At Dream Wheels Exotics, our mission is to provide unparalleled experiences by offering the world's most luxurious and exhilarating exotic car rentals. We strive to exceed the expectations of our clients by delivering impeccable service, meticulously maintained vehicles, and unforgettable journeys that ignite passion and elevate dreams. With a commitment to excellence and a dedication to customer satisfaction, we aim to redefine the standard of luxury car rental, making every drive an extraordinary adventure.</p>
                         </Col>
                     </Row>
@@ -174,7 +174,7 @@ function HomePage() {
 
             {/* Top Picks */}
             <Row className='topPicsCard'>
-                <Col span={18} offset={3} xxl={{ span: 18, offset: 3 }} xl={{ span: 24, offset: 0 }}>
+                <Col span={18} offset={3} xxl={{ span: 18, offset: 3 }} xl={{ span: 24, offset: 0 }} xs={{span:24,offset:0}}>
                     <h1>Our Top Pics of the Month</h1>
                     <Row className='topPicsCardInner'>
                         {topPicsCarIdData ? topPicsCarIdData.map((data) =>
@@ -191,7 +191,7 @@ function HomePage() {
             {/* Steps */}
             <h1 style={{ textAlign: 'center', color: '#1790fc' }}>Four Easy Steps</h1>
             <Row className='stepsCard'>
-                <Col span={18} offset={3} >
+                <Col span={18} offset={3} xl={{span:18,offset:3}} lg={{span:18,offset:3}} xs={{span:24,offset:0}} >
                     {stepDetails.map((data) =>
                         <Card>
                             <ScrollTrigger onEnter={() => setScrollStatus(true)} onExit={() => setScrollStatus(false)} >
@@ -218,7 +218,7 @@ function HomePage() {
 
             {/* FAQ */}
             <Row>
-                <Col span={18} offset={3} className='faqSectionOuter'>
+                <Col span={18} offset={3} xl={{span:18,offset:3}} lg={{span:18,offset:3}}  xs={{span:23,offset:1}} className='faqSectionOuter'>
                     <div><h1>FAQ</h1></div>
                     <Row className='faqSection'>
                         <Col span={11} >

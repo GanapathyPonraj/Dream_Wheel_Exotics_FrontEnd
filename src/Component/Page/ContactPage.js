@@ -10,8 +10,6 @@ import Footer from '../Component/Footer';
 import NavBar from '../Component/NavBar';
 
 function ContactPage() {
-    // const path = require('path-browserify');
-    // require('dotenv').config();
     const [form] = Form.useForm();
     const [messageApi, contextHolder] = message.useMessage();
     const [mapPositionFromSelect, setmapPositionFromSelect] = useState([45.421001, -75.625580])
@@ -91,10 +89,10 @@ function ContactPage() {
                         <p>Whether its a feedack or a inquiry our team of experts are available 24/7 to assist you with your questions.</p>
                     </div>
                     <Row>
-                        <Col span={12}>
+                        <Col span={12} xl={12} lg={12} xs={0} >
                             <img src='https://media.licdn.com/dms/image/D4E12AQGH_fxsp_cPxA/article-cover_image-shrink_720_1280/0/1693210735671?e=1713398400&v=beta&t=Q5MJ8hp4C9G9GHL664UntaRSyJsvP3Z8vDKWFsf5Kh0' alt='carRentalContact' style={{ height: 'auto', width: '150%', marginLeft: '-13vw' }} />
                         </Col>
-                        <Col span={12}>
+                        <Col span={12} xl={12} lg={12} xs={24}>
                             <Card id='contactCard'>
                                 <h1>Contact Form</h1>
                                 <p>Have a question or need assistance? Fill out the form below and we'll get back to you as soon as possible.</p>
@@ -214,7 +212,7 @@ function ContactPage() {
                         </Col>
                     </Row>
                     <Row id='contactPageBottom'>
-                        <Col span={12} id='leftColumnContactPage'>
+                        <Col span={12} xl={12} lg={12} xs={24} id='leftColumnContactPage'>
                             <div>
                                 <h1>Our Locations</h1>
                                 <div id='text' onClick={(() => passValueToMap('1171'))}><EnvironmentFilled /> 1171 Kenaston Street,Ottawa,K1B 4A6</div>
@@ -228,7 +226,7 @@ function ContactPage() {
                                 <div className='footerIcon'><TwitterOutlined /><FacebookOutlined /><InstagramOutlined /></div>
                             </div>
                         </Col>
-                        <Col span={11} offset={1} id='stepsDateCardLeft'>
+                        <Col span={11} offset={1} xl={{span:11,offset:1}} lg={{span:11,offset:1}} xs={{span:24,offset:0}} id='stepsDateCardLeft'>
                             <Card>
                                 <div id="map">
                                     <MapContainer center={mapPositionFromSelect} zoom={13} scrollWheelZoom={true} style={{ with: '100%', height: '400px' }}>
@@ -265,7 +263,7 @@ function ContactPage() {
                 <Col span={3}></Col>
 
             </Row>
-            <Footer />
+            <Footer className='contactPageFooter'/>
         </div>
     )
 }

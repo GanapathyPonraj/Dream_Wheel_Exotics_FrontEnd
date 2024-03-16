@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { motion } from 'framer-motion'
 import { Button, Card, Col, Modal, Row, Table, Tag } from 'antd'
-import { HomeFilled, CalendarFilled, CarFilled,EditOutlined } from '@ant-design/icons';
+import { HomeFilled, CalendarFilled, CarFilled, EditOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
+import SlidingPanel from 'react-sliding-side-panel';
+import 'react-sliding-side-panel/lib/index.css';
 
 import NavBar from '../Component/NavBar'
 import Footer from '../Component/Footer';
@@ -33,6 +35,8 @@ function AccountsPage() {
   const [loadPage, setLoadPage] = useState('dashboard')
   const [ImageModalOpen, setImageModalOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState()
+  const [openPanel, setOpenPanel] = useState(false);
+
 
   //Constants
   const selectedDate = { pickupDate: bookingDataDates.pickupDate, dropOffDate: bookingDataDates.dropOffDate }
@@ -93,8 +97,6 @@ function AccountsPage() {
   //UseEffects
   useEffect(() => {
     dispatch(saveUserData())
-    // setSelectedImage(userDataFromStore.profilePic)
-    // updateFav()
   }, [])
 
   useEffect(() => {
@@ -104,11 +106,11 @@ function AccountsPage() {
     }
   }, [dispatch, userDataFromLS])
 
-  useEffect(()=>{
-    if(userDataFromStore){
-    setSelectedImage(userDataFromStore.profilePic)
-  }
-  },[userDataFromStore])
+  useEffect(() => {
+    if (userDataFromStore) {
+      setSelectedImage(userDataFromStore.profilePic)
+    }
+  }, [userDataFromStore])
   useEffect(() => {
     if (userDataFromLS) {
       dispatch(getAllBooking(userDataFromLS.token))
@@ -120,9 +122,6 @@ function AccountsPage() {
         dispatch(getUserDetails(userDataFromLS.token))
 
       }
-      // if (carDataFromStore) {
-      //   updateFav()
-      // }
     }
     else {
       navigate('/')
@@ -135,17 +134,10 @@ function AccountsPage() {
     recentOrderDataLoaded(recentDataFromStore)
   }, [recentDataFromStore])
 
-  // useEffect(() => {
-  //   updateFav()
-  // }, [userDataFromStore])
-
   useEffect(() => {
     updateFav()
   }, [favouriteCars])
-  // useEffect(()=>{
-  //   updateFav()
-  // },[favCarData])
-
+  
   //Functions
   const recentOrderDataLoaded = (data1) => {
     if (data1) {
@@ -178,18 +170,6 @@ function AccountsPage() {
           return data
         }
       }).filter((data) => userDetails.includes(data._id)) : []
-      // console.log('update',carInfoFiltered);
-      // const carInfofiltered = carDataFromStore ? carDataFromStore.filter((obj) => {
-      //   if (userDetails.includes(obj._id)) {
-      //     return true
-      //   }
-      // }) : ''
-      // const carInfofilteredWithFav =carInfofiltered?carInfofiltered.map((data) => {
-      //   return {
-      //     ...data,
-      //     fav: true
-      //   }
-      // }):''
       setFavCarData(carInfoFiltered);
     }
   }
@@ -202,20 +182,13 @@ function AccountsPage() {
     setImageModalOpen(false);
   };
 
-  // useEffect(()=>{
-  //   const userData = { userToken: userDataFromLS.token, picID: selectedImage }
-  //   dispatch(addPicToUser(userData))
-  // },[selectedImage])
-
   const imagesMapSelected = (data) => {
     if (userDataFromLS) {
       const userData = { userToken: userDataFromLS.token, picID: data }
       dispatch(addPicToUser(userData))
       setSelectedImage(data)
       setImageModalOpen(false)
-
     }
-
   }
 
   return (
@@ -227,30 +200,54 @@ function AccountsPage() {
       </Modal>
       <NavBar />
       <Row className='accountsPageOuter'>
-        <Col span={2}></Col>
-        <Col span={20}>
+        <Col span={2} xl={2} lg={2} xs={0}></Col>
+        <Col span={20} xl={20} lg={20} xs={24}>
           <Row className='accountsPage'>
-            <Col span={5}>
-              <Card id='accountCard'>
-                <div className='imageAccount' onClick={() => setImageModalOpen(true)}>
-                  {/* {profileImages.map((data)=>{ */}
-                  <EditOutlined className='imageAvatarEdit'/>
-                  <img src={selectedImage} alt={selectedImage} />
-                  {/* })}   */}
-                </div>
-
-                <h3>{userDataFromStore ? userDataFromStore.name : ''}</h3>
-                <h4>{userDataFromStore ? userDataFromStore.email : ''}</h4>
-                {/* <div id='text'> <UserOutlined /> Profile</div> */}
-                <div id='text' onClick={() => setLoadPage('dashboard')} > <HomeFilled /> Dashboard</div>
-                <div id='text' onClick={() => setLoadPage('orders')}><CalendarFilled /> Orders</div>
-                <div id='text' onClick={() => setLoadPage('favorites')}><CarFilled /> Favourite Cars</div>
-              </Card>
+            {/* Account Info  */}
+            {/* MobilePhone */}
+            <Col span={0} xl={0} lg={0} xs={20}>
+              <Button onClick={() => { setOpenPanel(!openPanel) }}>{openPanel ? <MenuFoldOutlined /> : <MenuUnfoldOutlined />}Account</Button>
+              <SlidingPanel
+                type={'left'}
+                isOpen={openPanel}
+                size={70}
+              >
+                <Card id='accountCard'>
+                <Button id='menuSliderButton' onClick={() => { setOpenPanel(!openPanel) }}>{openPanel ? <MenuFoldOutlined /> : <MenuUnfoldOutlined />}</Button>
+                  <div className='imageAccount' onClick={() => setImageModalOpen(true)}>
+                    <EditOutlined className='imageAvatarEdit' />
+                    <img src={selectedImage} alt={selectedImage} />
+                  </div>
+                  <h3>{userDataFromStore ? userDataFromStore.name : ''}</h3>
+                  <h4>{userDataFromStore ? userDataFromStore.email : ''}</h4>
+                  <div>
+                    <div id='text' onClick={() => setLoadPage('dashboard')} > <HomeFilled /> Dashboard</div>
+                    <div id='text' onClick={() => setLoadPage('orders')}><CalendarFilled /> Orders</div>
+                    <div id='text' onClick={() => setLoadPage('favorites')}><CarFilled /> Favourite Cars</div>
+                  </div>
+                </Card>
+              </SlidingPanel>
+            </Col>
+            {/* Laptops  */}
+            <Col span={0} xl={5} lg={5} xs={0} >
+                <Card id='accountCard'>
+                  <div className='imageAccount' onClick={() => setImageModalOpen(true)}>
+                    <EditOutlined className='imageAvatarEdit' />
+                    <img src={selectedImage} alt={selectedImage} />
+                  </div>
+                  <h3>{userDataFromStore ? userDataFromStore.name : ''}</h3>
+                  <h4>{userDataFromStore ? userDataFromStore.email : ''}</h4>
+                  <div>
+                    <div id='text' onClick={() => setLoadPage('dashboard')} > <HomeFilled /> Dashboard</div>
+                    <div id='text' onClick={() => setLoadPage('orders')}><CalendarFilled /> Orders</div>
+                    <div id='text' onClick={() => setLoadPage('favorites')}><CarFilled /> Favourite Cars</div>
+                  </div>
+                </Card>
             </Col>
 
             {(loadPage === 'dashboard') ?
               /* Dashboard */
-              <Col span={19}>
+              <Col span={19} xl={19} lg={19} xs={24}>
                 <Card>
                   <h2>Recent Orders</h2>
                   {bookingLoading ? bookingLoading.allBookingloading ?
@@ -281,22 +278,22 @@ function AccountsPage() {
                         <motion.div whileHover={{ scale: 1.02 }} onHoverStart={e => { }} onHoverEnd={e => { }}>
                           <Card className='accountFavCard'>
                             <Row>
-                              <Col span={7} id='image'><img src={data.carImage} alt={data.carName} /></Col>
-                              <Col span={12}>
+                              <Col span={7} xl={7} lg={7} xs={24} id='image'><img src={data.carImage} alt={data.carName} /></Col>
+                              <Col span={12} xl={12} lg={12} xs={24}>
                                 <h2>{data.carName}</h2>
                                 <Row>
-                                  <Col span={12}>
+                                  <Col span={12} xl={12} lg={12} xs={24}>
                                     <div><b>Seats</b>: {data.seats}</div>
                                     <div><b>Transmission</b>: {data.transmission}</div>
                                     <div><b>No. of Doors</b>: {data.doors}</div>
                                   </Col>
-                                  <Col span={12}>
+                                  <Col span={12} xl={12} lg={12} xs={24}>
                                     <div><b>Brand</b>: {data.brand}</div>
                                     <div><b>Type</b>: {data.carType}</div>
                                   </Col>
                                 </Row>
                               </Col>
-                              <Col span={5} id='dailyRateColumn'>
+                              <Col span={5} xl={5} lg={5} xs={24} id='dailyRateColumn'>
                                 <div>Daily Rate From</div>
                                 <h1>$ {data.dailyRate}</h1>
                                 <div><Button>Book now</Button></div>
@@ -311,7 +308,7 @@ function AccountsPage() {
               :
               // OrderSection
               (loadPage === 'orders') ?
-                <Col span={19}>
+                <Col span={19} xl={19} lg={19} xs={24}>
                   <Card>
                     <h2>Recent Orders</h2>
                     <div className=''>
@@ -332,7 +329,7 @@ function AccountsPage() {
                 </Col>
                 :
                 (loadPage === 'favorites') ?
-                  <Col span={15} xxl={19} xl={19} className='fleetColumn' >
+                  <Col span={15} xxl={19} xl={19} xs={24} className='fleetColumn' >
                     <Card>
                       <h2>Favourite Cars</h2>
                       <Row gutter={[24, 24]} className='topPicsCardInner' id='accountPage'>

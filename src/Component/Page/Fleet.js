@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Card, Checkbox, Col, Collapse, Form, Input, Modal, Row, Select } from 'antd'
 import dayjs from 'dayjs';
-import LazyLoad from 'react-lazy-load';
+import { MenuUnfoldOutlined, MenuFoldOutlined, DownCircleOutlined, UpCircleOutlined } from '@ant-design/icons';
 
 
 import BookingForm from '../Component/BookingForm'
@@ -48,6 +48,8 @@ function Fleet() {
     const [carDatawithFavValues, setcarDatawithFavValues] = useState('')
     const [sortButtonValue, setSortButtonValue] = useState('None')
     const [filterButtonValues, setFilterButtonValues] = useState()
+    const [menuVisibility, setMenuVisibility] = useState(true)
+    const [bookingVisibility, setBookingVisibility] = useState(true)
 
     const selectedDate = { pickupDate: dayjs(bookingDataDates.pickupDate).format('YYYY-MM-DD'), dropOffDate: dayjs(bookingDataDates.dropOffDate).format('YYYY-MM-DD') }
     const priceTotal = modalContent.dailyRate * dayjs(bookingDataDates.dropOffDate).diff(dayjs(bookingDataDates.pickupDate), 'day')
@@ -195,10 +197,7 @@ function Fleet() {
     const carDetailsCall = () => {
         return topPicsSectiondata1 ? topPicsSectiondata1.map((data) =>
             <div>
-                {/* <LazyLoad height={400} placeholder={<div>Loading...</div>}> */}
-                    <CarDetails data={data} key={data._id} showButton={true} userId={userData} userToken={userDataFromLS ? userDataFromLS.token : null} fleetModal={showFleetModal} />
-                {/* </LazyLoad> */}
-
+                <CarDetails data={data} key={data._id} showButton={true} userId={userData} userToken={userDataFromLS ? userDataFromLS.token : null} fleetModal={showFleetModal} />
             </div>) : ''
     }
 
@@ -209,10 +208,8 @@ function Fleet() {
 
     const sortFunction = (value) => {
         if (value === 'None') {
-            // console.log('came in sort function',filterButtonValues,value);
             setSortButtonValue(value)
             if (filterButtonValues) {
-                // console.log('came insisde');
                 if (userDataFromLS) {
                     const dataOfFilter = filterProducts(carDatawithFavValues, filterButtonValues)
                     settopPicsSectiondata1(dataOfFilter)
@@ -220,7 +217,6 @@ function Fleet() {
                     const dataOfFilter = filterProducts(carInfo, filterButtonValues)
                     settopPicsSectiondata1(dataOfFilter)
                 }
-
             }
             else {
                 settopPicsSectiondata1(carDatawithFavValues)
@@ -249,11 +245,13 @@ function Fleet() {
     return (
         <div>
             <NavBar />
+            <Row className='MenuOpenButton'>
+                <Button onClick={() => { setMenuVisibility(!menuVisibility) }}>{menuVisibility ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}Menu</Button>
+            </Row>
             <Row className='fleetOuter'>
-
                 {/* Filter */}
-                <Col span={3} offset={3} xxl={{ span: 3, offset: 3 }} xl={{ span: 4, offset: 1 }} id='fleetFilter'>
-                    <Form name='filter' form={form} onFinish={filterButtonPress}>
+                <Col span={3} offset={3} xxl={{ span: 3, offset: 3 }} xl={{ span: 4, offset: 1 }} xs={{ span: 10, offset: 0 }} id='fleetFilter' className={menuVisibility ? 'hide' : 'show'} >
+                    <Form name='filter' form={form} onFinish={filterButtonPress} >
                         <Collapse expandIconPosition={'end'} ghost defaultActiveKey={['1']} collapsible={false} items={[
                             {
                                 key: '1',
@@ -344,10 +342,10 @@ function Fleet() {
                         <Button style={{ fontSize: 12 }} onClick={formReset}>Clear</Button>
                     </Form>
                 </Col>
-
                 {/* Main Content  */}
-                <Col span={15} xxl={15} xl={18} className='fleetColumn'>
-                    <Card id='bookingCardOuter'>
+                <Col span={15} xxl={15} xl={18} xs={24} className='fleetColumn'>
+                    <div onClick={() => { setBookingVisibility(!bookingVisibility) }} id='bookingVisibility'>{bookingVisibility ? <DownCircleOutlined /> : <UpCircleOutlined />}</div>
+                    <Card id='bookingCardOuter' className={bookingVisibility ? 'hidebooking' : 'showBooking'}>
                         <BookingForm formLocation={'fleetPageTopSection'} />
                     </Card>
 
@@ -399,7 +397,7 @@ function Fleet() {
             <Modal centered width={'60vw'} footer={null} onOk={handleOk}
                 onCancel={handleCancel} open={isFleetModalOpen} className='fleetModal'>
                 <Row>
-                    <Col span={15} offset={1} className='modal'>
+                    <Col span={15} offset={1} xl={{span:15,offset:1}} lg={{span:15,offset:1}} xs={{span:24,offset:0}} className='modal'>
                         <Row className='modalImage'>
                             <img src={modalContent.carImage} alt='Range' />
                         </Row>
@@ -417,7 +415,7 @@ function Fleet() {
                             <p>To reserve an exotic car with Dream Wheels Exotics, ensure you're at least 25 years old, possess a valid driver's license, proof of insurance, and a major credit card. Additionally, a security deposit is required, the amount of which varies depending on the vehicle. Contact our team for more details on booking requirements and to secure your dream ride.</p>
                         </div>
                     </Col>
-                    <Col span={8} offset={0} className='fleetFormOuter'>
+                    <Col span={8} offset={0} xl={{span:8,offset:0}} lg={{span:8,offset:0}} xs={{span:24,offset:0}} className='fleetFormOuter'>
 
                         <Card className='fleetForm'>
                             <BookingForm formLocation={'fleetPageModal'} formLocationAdditional={'FleetPageModal'} modalData={modalContent} />

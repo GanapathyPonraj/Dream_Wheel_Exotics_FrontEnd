@@ -18,7 +18,6 @@ function CarDetails(props) {
 
     //useEffect
     useEffect(() => {
-        // console.log('heart State',heartValue);
         setheartState(heartValue)
     }, [heartValue])
 
