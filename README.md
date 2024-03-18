@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# 📗 Table of Contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
 
-## Available Scripts
+# 📖 Dream Wheel Exotics - Frontend <a name="about-project"></a>
 
-In the project directory, you can run:
+**Dream Wheel Exotics** is a sophisticated Full Stack application that demonstrates my proficiency in both Frontend and Full Stack development. Developed using the MERN stack, the app incorporates advanced features such as JWT authentication for secure user access and WebSocket connections for real-time updates on user favorites. The application is designed to be fully responsive, ensuring optimal user experiences on various devices, including phones, tablets, laptops, and desktops. One of the key highlights of this project is the implementation of RESTful APIs, which enable users to seamlessly create bookings, add and manage their favorite cars, and allow owners to dynamically update car details. This project not only showcases my technical skills but also my ability to create user-centric applications that are both functional and visually appealing.
 
-### `npm start`
+## Frontend
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The frontend was made with react and can be found [here](https://github.com/GanapathyPonraj/Forecastify](https://github.com/GanapathyPonraj/Dream_Wheel_Exotics_FrontEnd)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠 Built With <a name="built-with"></a>
 
-### `npm test`
+### Tech Stack <a name="tech-stack"></a>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li>HTML</li>
+    <li>SCSS</li>
+    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li>REST Api</li>
+    <li>REDUX</li>
+    <li>Antd</li>
+    <li>Vercel</li>
+  </ul>
+</details>
+<details>
+  <summary>Server</summary>
+  <ul>
+  <li>MongDb</li>
+  <li>JWT</li>
+  <li>EXPRESS</li>
+  <li>NODE</li>
+  <li>Render</li>
+</ul>
+</details>
+### Key Features <a name="key-features"></a>
 
-### `npm run build`
+- **User can Browse,Filter,Sort Cars **
+- **User can LogIn,SignUp,Add Favourite Cars,See  Orders,Book a new Car**
+- **User can see the dates a particular car is booked and change his dates , if he wants to book a particular car**
+- **Cross Platform Compatible**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Live Demo <a name="live-demo"></a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Live Demo Link](https://dream-wheel-exotics-frontend.vercel.app/)
 
-### `npm run eject`
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 👥 Authors <a name="authors"></a>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+👤 **Ganapathy Ponraj**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- GitHub: [@GanapathyPonraj](https://github.com/GanapathyPonraj)
+- LinkedIn: [@Ganapathy Ponraj](https://www.linkedin.com/in/techieemma/](https://www.linkedin.com/in/ganapathy-ponraj-b58b041a9/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Learn More
+## 🔭 Future Features <a name="future-features"></a>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [ ] **Creation of a Admin Dashboard to monitor the bookings etc. For the user**
+- [ ] **Adding Chat features using AI and Google chatbot to assit user in booking**
+- [ ] **Adding Cookies to understand user pattern and adjust recommendations**
+- [ ] **Adding push notifications and trip reminders**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
