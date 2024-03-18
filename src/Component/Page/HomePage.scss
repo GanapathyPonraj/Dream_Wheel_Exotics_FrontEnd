@@ -2479,6 +2479,10 @@
         margin-top: 1vh;
     }
 
+    .featurePage{
+        display: flex!important;
+        flex-direction: column!important;
+    }
     .homePageRow {
         height: max-content !important;
         background-size: 109vh !important;
@@ -2902,6 +2906,10 @@
         transition: transform 2s ease-in-out;
         transform: translateY(0vh);
         height: max-content !important;
+    }
+    .featurePage{
+        display: flex!important;
+        flex-direction: column!important;
     }
 
 
