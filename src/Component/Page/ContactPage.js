@@ -12,7 +12,7 @@ import NavBar from '../Component/NavBar';
 function ContactPage() {
     const [form] = Form.useForm();
     const [messageApi, contextHolder] = message.useMessage();
-    const [mapPositionFromSelect, setmapPositionFromSelect] = useState([45.421001, -75.625580])
+    const [mapPositionFromSelect, setmapPositionFromSelect] = useState([[45.421001, -75.625580],[45.438275, -75.595290],[45.409321, -75.608589]])
 
     //Constants
     const icon9 = L.icon({
@@ -59,20 +59,20 @@ function ContactPage() {
     }
 
     const passValueToMap = (data) => {
-        switch (data) {
-            case '1171':
-                setmapPositionFromSelect([45.421001, -75.625580])
-                break
-            case '2464':
-                setmapPositionFromSelect([45.438275, -75.595290])
-                break
-            case '650':
-                setmapPositionFromSelect([45.409321, -75.608589])
-                break
-            default:
-                setmapPositionFromSelect([45.421001, -75.625580])
-                break
-        }
+        // switch (data) {
+        //     case '1171':
+        //         setmapPositionFromSelect([45.421001, -75.625580])
+        //         break
+        //     case '2464':
+        //         setmapPositionFromSelect([45.438275, -75.595290])
+        //         break
+        //     case '650':
+        //         setmapPositionFromSelect([45.409321, -75.608589])
+        //         break
+        //     default:
+        //         setmapPositionFromSelect([45.421001, -75.625580])
+        //         break
+        // }
     }
 
 
@@ -229,10 +229,14 @@ function ContactPage() {
                         <Col span={11} offset={1} xl={{span:11,offset:1}} lg={{span:11,offset:1}} xs={{span:24,offset:0}} id='stepsDateCardLeft'>
                             <Card>
                                 <div id="map">
-                                    <MapContainer center={mapPositionFromSelect} zoom={13} scrollWheelZoom={true} style={{ with: '100%', height: '400px' }}>
+                                    <MapContainer center={mapPositionFromSelect[0]} zoom={13} scrollWheelZoom={true} style={{ with: '100%', height: '400px' }}>
                                         <TileLayer
                                             url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' />
-                                        <Marker position={mapPositionFromSelect} icon={icon9} iconSize={[25, 41]} iconAnchor={[12, 41]}>
+                                        <Marker position={mapPositionFromSelect[0]} icon={icon9} iconSize={[25, 41]} iconAnchor={[12, 41]}>
+                                        </Marker>
+                                        <Marker position={mapPositionFromSelect[1]} icon={icon9} iconSize={[25, 41]} iconAnchor={[12, 41]}>
+                                        </Marker>
+                                        <Marker position={mapPositionFromSelect[2]} icon={icon9} iconSize={[25, 41]} iconAnchor={[12, 41]}>
                                         </Marker>
                                     </MapContainer>
                                 </div>

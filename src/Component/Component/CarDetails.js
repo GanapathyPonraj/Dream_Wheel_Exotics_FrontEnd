@@ -1,8 +1,9 @@
-import { Button, Card, Col, Row, message } from 'antd'
+import { Button, Card, Col, Row, message,Spin } from 'antd'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { motion } from "framer-motion";
 
+import { LoadingOutlined } from '@ant-design/icons';
 import { addFavtoUser, removeFavFromUser } from '../../app/userSlice';
 import { addFavCountToCar, removeFavCountToCar } from '../../app/carSlice';
 import LazyLoad from 'react-lazyload';
@@ -55,39 +56,50 @@ function CarDetails(props) {
     }
 
     return (
-        <LazyLoad height={200} placeholder={<div>Loading...</div>}>
-        <div>
-            {contextHolder}
-            <motion.div
-                whileHover={{ scale: 1.05 }}
-                onHoverStart={e => { }}
-                onHoverEnd={e => { }}
-            >
-                <Card>
-                    <div className='carDetailsImageOuter'><img src={props.data.carImage} alt='lambo' /></div>
-                    <div id='topPicsCardInnerTitle' className='topPicsSpace'>
-                        <span id='carName'>{props.data.carName}</span>
-                        <span>
-                            <img src={heartState ? 'heart-set.png' : 'heart-unset.png'} onClick={() => { heartState ? addFavFunction('remove') : addFavFunction('add') }} alt='heart' />
-                            {props.data.favouriteCount}
-                        </span>
-                    </div>
-                    <Row className='topPicsSpace'>
-                        <span><img src='car-seat.png' alt='carseat' className='iconsSpace' />  {props.data.seats}</span>
-                        <span><img src='gear-stick.png' alt='gear' className='iconsSpace' />  {props.data.transmission}</span>
-                        <span><img src='car-door.png' alt='cardoor' className='iconsSpace' />  {props.data.doors}</span>
-                        <span><img src='car-type.png' alt='cartype' className='iconsSpace' />  {props.data.carType}</span>
-                    </Row>
-                    {props.showButton ?
-                        <Row id='topPicsBottom'>
-                            <Col span={11}><div id='dailyRate'>Daily Rates From</div><div><h2>${props.data.dailyRate}</h2></div> </Col>
-                            <Col span={8} offset={5}><Button onClick={() => props.fleetModal(props.data)}>Book Now</Button></Col>
+        <LazyLoad height={200} placeholder={<div>
+            <Spin
+                indicator={
+                    <LoadingOutlined
+                        style={{
+                            fontSize: 24,
+                        }}
+                        spin
+                    />
+                }
+            />
+        </div>}>
+            <div>
+                {contextHolder}
+                <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    onHoverStart={e => { }}
+                    onHoverEnd={e => { }}
+                >
+                    <Card>
+                        <div className='carDetailsImageOuter'><img src={props.data.carImage} alt='lambo' /></div>
+                        <div id='topPicsCardInnerTitle' className='topPicsSpace'>
+                            <span id='carName'>{props.data.carName}</span>
+                            <span>
+                                <img src={heartState ? 'heart-set.png' : 'heart-unset.png'} onClick={() => { heartState ? addFavFunction('remove') : addFavFunction('add') }} alt='heart' />
+                                {props.data.favouriteCount}
+                            </span>
+                        </div>
+                        <Row className='topPicsSpace'>
+                            <span><img src='car-seat.png' alt='carseat' className='iconsSpace' />  {props.data.seats}</span>
+                            <span><img src='gear-stick.png' alt='gear' className='iconsSpace' />  {props.data.transmission}</span>
+                            <span><img src='car-door.png' alt='cardoor' className='iconsSpace' />  {props.data.doors}</span>
+                            <span><img src='car-type.png' alt='cartype' className='iconsSpace' />  {props.data.carType}</span>
                         </Row>
-                        : <Row id='topPicsBottom1'><div id='dailyRate1'>Daily Rates From</div><div><h2>${props.data.dailyRate}</h2></div></Row>}
+                        {props.showButton ?
+                            <Row id='topPicsBottom'>
+                                <Col span={11}><div id='dailyRate'>Daily Rates From</div><div><h2>${props.data.dailyRate}</h2></div> </Col>
+                                <Col span={8} offset={5}><Button onClick={() => props.fleetModal(props.data)}>Book Now</Button></Col>
+                            </Row>
+                            : <Row id='topPicsBottom1'><div id='dailyRate1'>Daily Rates From</div><div><h2>${props.data.dailyRate}</h2></div></Row>}
 
-                </Card>
-            </motion.div>
-        </div>
+                    </Card>
+                </motion.div>
+            </div>
         </LazyLoad>
     )
 }

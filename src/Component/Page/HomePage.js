@@ -36,7 +36,7 @@ function HomePage() {
     const selectedDate = { pickupDate: bookingDataDates.pickupDate, dropOffDate: bookingDataDates.dropOffDate }
     const myStyle1 = {
         backgroundImage: "url(/bugatti.png)",
-        height: "94vh",
+        // height: "max-content",
         backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
     };

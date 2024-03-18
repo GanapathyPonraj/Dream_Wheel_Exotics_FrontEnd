@@ -133,7 +133,7 @@ const userSliceLogic = createSlice(
             })
             builder.addCase(addFavtoUser.fulfilled, (state, action) => {
                 state.loading = false
-                state.userData = action.payload.data
+                state.userData = action.payload.userTemp
                 state.error = ''
             })
             builder.addCase(addFavtoUser.rejected, (state, action) => {

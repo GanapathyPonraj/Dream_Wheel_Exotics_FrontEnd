@@ -40,6 +40,8 @@ function Fleet() {
     const userDataFromLS = useSelector((store) => store.user.userDataFromLS)
     const carInfo = useSelector((store) => store.carDataStore.carData)
     const carLoading = useSelector((store) => store.carDataStore)
+    const userLoginStatus = useSelector((store) => store.user.userLogIn)
+
 
     //State Values
     const [modalContent, setModalContent] = useState(emptyFleetData)
@@ -60,6 +62,9 @@ function Fleet() {
         dispatch(getAllCarWithAvailability(selectedDate))
         dispatch(saveUserData())
         addingFavFromUser()
+        if (userDataFromLS) {
+            dispatch(getUserDetails(userDataFromLS))
+        }
     }, [])
 
     useEffect(() => {

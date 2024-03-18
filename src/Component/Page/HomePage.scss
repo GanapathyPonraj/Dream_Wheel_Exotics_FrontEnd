@@ -262,7 +262,9 @@
 .content {
     display: flex;
     margin: 0;
-    animation: slide-right-to-left 50s linear infinite;
+    animation: slide-right-to-left 30s ease-in-out forwards infinite;
+    // animation: slide-right-to-left 30s linear forwards infinite;
+    // animation: slide-right-to-left 10s ease-in-out forward infinite;
 }
 
 .content>* {
@@ -613,19 +615,11 @@
 //HomePage
 .homePageRow {
     height: 95vh;
+    min-height:93vh;
     background-color: aliceblue;
     // background-image: "url(/bugatti.png)";
 
 }
-
-// .myStyle1 {
-//     background-image: "url(/bugatti.png)";
-//     height: "94vh";
-//     // backgroundColor: "rgb(27 23 23 / 47%)",
-//     background-size: "contain";
-//     background-repeat: "no-repeat";
-//     // backgroundBlendMode: 'darken',
-// }
 
 #homeBody {
     #firstRowHomePage {
@@ -1021,6 +1015,7 @@
     height: max-content;
     margin-top: 6vh;
     margin-bottom: 6vh;
+    overflow: hidden;
 
     #featurePageRowOne {
         flex-direction: column;
@@ -1091,6 +1086,9 @@
     height: 50vh;
 
     #icon {
+        height: 3vh;
+        overflow: hidden;
+
         .anticon {
             font-size: 1.5rem;
             color: #1790fc;
@@ -2475,9 +2473,14 @@
 
 
 //Media query for laptop xl(1200px)
-@media(min-width:1200px) and (max-width:1599px) {
+@media(min-width:1200px) and (max-width:1600px) {
+    .stepsCard #icon {
+        height: 5vh;
+        margin-top: 1vh;
+    }
+
     .homePageRow {
-        height: 94vh !important;
+        height: max-content !important;
         background-size: 109vh !important;
         background-position: left !important;
         background-repeat: no-repeat !important;
@@ -2494,6 +2497,23 @@
 
     .topPicsCardInner {
         justify-content: space-evenly;
+    }
+
+    .topPicsSpace {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        width: 100%;
+        overflow: scroll !important;
+    }
+    .topPicsSpace::-webkit-scrollbar{
+        display: none;
+    }
+    .accountsPage #accountTable th.ant-table-cell{
+        text-wrap: nowrap;
+    }
+    .accountsPage #accountTable td.ant-table-cell{
+        text-wrap: nowrap;
     }
 
     .featurePage #featurePageImageCol img {
@@ -2516,7 +2536,7 @@
     }
 
     .stepsCard .ant-card {
-        height: 27vh;
+        height: 35vh;
         margin-right: 2vw;
     }
 
@@ -2564,6 +2584,7 @@
 
         #Loactions {
             white-space: pre;
+            text-wrap: balance;
         }
     }
 
@@ -2575,6 +2596,11 @@
             min-height: 95vh;
         }
     }
+    .accountsPageOuter{
+        .fleetColumn{
+            height: max-content!important;
+        }
+    }
 
     .fleetColumn {
         height: 88vh;
@@ -2584,6 +2610,7 @@
         }
 
         .topPicsCardInner {
+            height: 87vh;
             padding-top: 2vh;
             column-gap: 30px;
         }
@@ -2626,6 +2653,259 @@
     }
 }
 
+//Tablet
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+
+    //NavBar
+    .NavBar {
+        height: max-content;
+    }
+
+    .NavBar #logo {
+        margin-top: 2vh;
+        text-align: center;
+    }
+
+    .navBarTopRow {
+        margin-top: 1vh;
+        margin-bottom: 2vh;
+    }
+
+    //LogIn
+    .LogInPage #LogInPageRow #loginCard {
+        width: 50vw;
+    }
+
+    .LogInPage #LogInPageRow #SignUpCard {
+        width: 50vw;
+    }
+
+    @keyframes example {
+        0% {
+            left: 0vw;
+        }
+
+        100% {
+            left: 21vw;
+        }
+    }
+
+    //HomePage
+    #homeBody #firstRowHomePage {
+        align-content: center;
+        color: white;
+    }
+
+    .homepageBookingForm .formBooking .ant-picker-outlined {
+        width: 32vw;
+    }
+
+    .formBooking .submit {
+        width: auto;
+    }
+
+    .middleSection .middleCard {
+        font-size: 0.9em;
+
+        .ant-card-body {
+            padding: 10px !important;
+        }
+    }
+
+    .middleSection #leftColumn {
+        height: max-content;
+        font-size: 2em;
+    }
+
+    .middleSection #rightColumn {
+        height: max-content;
+
+        p {
+            padding: 0px;
+        }
+    }
+
+    .middleSection {
+        height: max-content;
+        padding-bottom: 5vh;
+    }
+
+    .topPicsCard h1 {
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+    }
+
+    .topPicsCard {
+        .topPicsCardInner {
+            display: flex !important;
+            align-items: center;
+            overflow-x: scroll;
+            width: 100%;
+            height: 40vh;
+            flex-direction: row !important;
+            flex-wrap: nowrap !important;
+            justify-content: space-between !important;
+
+            .ant-card {
+                width: 43vw;
+                margin-left: 2vw;
+            }
+        }
+    }
+
+    .featurePage #featurePageRowOne p {
+        text-wrap: nowrap;
+    }
+
+    .reviewCardInner {
+        width: 70vw;
+    }
+
+    .stepsCard {
+        height: 54vh;
+
+        .ant-card {
+            height: 42vh;
+            width: 22vw;
+        }
+
+        .ant-card-body {
+            padding: 6px
+        }
+    }
+
+    .faqSectionOuter .ant-collapse-header-text {
+        font-size: 1.5em;
+    }
+
+    .footer {
+        height: auto;
+    }
+
+    //About Page
+    .aboutPageInnerNew #text .contentRowFirstOne {
+        margin-top: 0px !important;
+    }
+
+    .aboutPageInnerNew #text #contentRow1 {
+        margin-top: 0px !important;
+        text-align: center !important;
+    }
+
+    .aboutPageInnerNew #text #contentRow {
+        margin-top: 0px !important;
+        text-align: center !important;
+    }
+
+    //Fleet
+    .MenuOpenButton {
+        background-color: aliceblue;
+        width: 100vw;
+        display: flex !important;
+        justify-content: space-between;
+        padding-top: 3vh;
+
+        #iconsFilterMenu {
+            justify-content: space-around;
+        }
+    }
+
+    //Pickup outer
+    // .formBookingTop {
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    // }
+
+    // .formBookingTop .submitButton {
+    //     margin-top: 0px;
+    // }
+    //Filter Animation in and out
+    #fleetFilter {
+        z-index: 100;
+    }
+
+    #fleetFilter {
+        position: absolute;
+        margin-left: 2vw;
+        margin-top: 6vh;
+        height: max-content !important;
+        transition: transform 1s ease-in-out;
+    }
+
+    .hide {
+        transform: translate3d(-100vw, 0, 0);
+    }
+
+    .show {
+        transform: translate3d(0vw, 0, 0);
+        overflow: hidden;
+    }
+
+    .bookingFormOuterTop {
+        justify-content: center;
+    }
+
+    .formBookingTop {
+        flex-direction: column;
+    }
+
+    //Booking Fleet Form Tablet in and Out 
+    .fleetColumn #bookingCardOuter {
+        margin-right: 8vw;
+        height: 20vh;
+        overflow: hidden;
+    }
+
+    .fleetModal {
+        width: 90vw !important;
+    }
+
+    .fleetColumn {
+        padding-left: 3vh;
+
+        .topPicsCardInner {
+            height: 65vh;
+
+            .ant-card {
+                width: 43vw;
+            }
+        }
+
+        #SortButton {
+            margin-right: 7vw !important;
+        }
+
+        #bookingVisibility {
+            display: block !important;
+            z-index: -2;
+            width: 21vw;
+            margin-left: 64vw;
+
+            .anticon {
+                font-size: 2em;
+                color: #1790fc;
+                // position: fixed;
+                // margin-top: 1vh;
+                left: 75vw;
+            }
+
+            z-index: -2;
+            margin-right: 8vw;
+            margin-top: -5vh;
+            margin-bottom: 2vh;
+            text-align: end;
+        }
+    }
+
+    .showBooking {
+        transition: transform 2s ease-in-out;
+        transform: translateY(0vh);
+        height: max-content !important;
+    }
+
+
+}
 
 //potrait phone 
 @media (min-width:350px) and (max-width:576px) {
@@ -2639,7 +2919,9 @@
             left: 10vw
         }
     }
-
+    .stepsCard #icon{
+        height: 5vh;
+    }
     .aboutPageInnerNew {
         top: 15vh
     }
@@ -2655,6 +2937,11 @@
 
     .aboutPageInnerNew #text #contentRow1 h1 {
         font-size: 2em !important;
+    }
+
+    .NavBar #centerCol {
+        border-top: 1px solid #dbdbdb87;
+        margin-top: 2vh;
     }
 
     .LogInPage #LogInPageRow #loginCard {
@@ -2876,6 +3163,7 @@
 
     .middleSection {
         height: max-content;
+        text-align: center;
 
         // margin-top: 20vh;
         #leftColumn {
@@ -3028,10 +3316,12 @@
 
     .accountsPage #accountTable th.ant-table-cell {
         font-size: smaller;
+        text-wrap: nowrap;
     }
 
     .accountsPage #accountTable td.ant-table-cell {
         font-size: smaller;
+        text-wrap: nowrap;
     }
 
     .NavBarSticky {
@@ -3225,5 +3515,6 @@
         display: flex !important;
         flex-direction: column;
         height: max-content;
+        overflow: hidden;
     }
 }

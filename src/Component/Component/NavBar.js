@@ -90,7 +90,7 @@ function NavBar() {
     const navDetails = () => {
         return (
             <Row className='navBarTopRow'>
-                <Col span={8} offset={0} xs={{ span: 24, offset: 0 }} xl={{ span: 12, offset: 1 }} lg={{ span: 12, offset: 1 }} id='centerCol'>
+                <Col span={8} offset={0} xs={{ span: 24, offset: 0 }} md={{ span: 13, offset: 5 }} xl={{ span: 12, offset: 1 }} lg={{ span: 12, offset: 1 }} id='centerCol'>
                     <span onClick={() => Navigation('home')}>Home</span>
                     <span onClick={() => Navigation('fleet')}>Fleet</span>
                     {/* <span onClick={() => Navigation('booking')}>Booking</span> */}
@@ -98,7 +98,7 @@ function NavBar() {
                     <span onClick={() => Navigation('about')}>About Us</span>
                     <span onClick={() => Navigation('contact')}>Contact</span>
                 </Col>
-                <Col span={5} id='end' xs={{ span: 24, offset: 0 }} xl={{ span: 9, offset: 2 }} lg={{ span: 9, offset: 2 }}>
+                <Col span={5} id='end' xs={{ span: 24, offset: 0 }} md={{ span: 6, offset: 0 }} xl={{ span: 9, offset: 2 }} lg={{ span: 9, offset: 2 }}>
                     {logInStatus ?
                         <div id='outer'>
                             {userName ?
@@ -124,7 +124,7 @@ function NavBar() {
             {contextHolder}
             {pageStatus ?
                 <Row className='NavBar'>
-                    <Col span={5} offset={3} xs={{ span: 24, offset: 0 }} xl={{ span: 5, offset: 3 }} lg={{ span: 5, offset: 3 }} id='logo'>
+                    <Col span={5} offset={3} xs={{ span: 24, offset: 0 }} sm={{ span: 24, offset: 0 }} xl={{ span: 5, offset: 3 }} lg={{ span: 5, offset: 3 }} id='logo'>
                             <div>
                             <t onClick={() => Navigation('home')}>Dream Wheel Exotics</t>
                             <Button onClick={() => { setOpenPanel(!openPanel) }} className='ShowNavBarPhone'>{openPanel ? <UpCircleFilled /> : <DownCircleFilled />}</Button>
@@ -133,10 +133,10 @@ function NavBar() {
                                 {navDetails()}
                             </div>
                     </Col>
-                    <Col span={13} className='hideNavBarPhone'>
+                    <Col span={13} xl={13} lg={13} sm={24} className='hideNavBarPhone'>
                         {navDetails()}
                     </Col>
-                    <Col span={3}></Col>
+                    <Col span={3} xl={3} lg={3} sm={0}></Col>
                 </Row> :
                 <Row className='LogInHeader'>
                     <Col span={18} offset={3}>
