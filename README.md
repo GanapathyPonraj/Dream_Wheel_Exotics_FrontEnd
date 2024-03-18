@@ -34,14 +34,15 @@ The frontend was made with react and can be found [here](https://github.com/Gana
 </details>
 <details>
   <summary>Server</summary>
-  <ul>
-  <li>MongDb</li>
-  <li>JWT</li>
-  <li>EXPRESS</li>
-  <li>NODE</li>
-  <li>Render</li>
-</ul>
+    <ul>
+    <li>MongDb</li>
+    <li>JWT</li>
+    <li>EXPRESS</li>
+    <li>NODE</li>
+    <li>Render</li>
+   </ul>
 </details>
+
 ### Key Features <a name="key-features"></a>
 
 - **User can Browse,Filter,Sort Cars **
