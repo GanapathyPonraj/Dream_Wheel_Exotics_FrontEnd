@@ -45,7 +45,7 @@ The frontend was made with react and can be found [here](https://github.com/Gana
 
 ### Key Features <a name="key-features"></a>
 
-- **User can Browse,Filter,Sort Cars **
+- **User can Browse,Filter,Sort Cars**
 - **User can LogIn,SignUp,Add Favourite Cars,See  Orders,Book a new Car**
 - **User can see the dates a particular car is booked and change his dates , if he wants to book a particular car**
 - **Cross Platform Compatible**
